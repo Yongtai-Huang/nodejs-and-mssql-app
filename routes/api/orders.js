@@ -73,7 +73,7 @@ router.get('/orderDetail', async (req, res, next) => {
 });
 
 
-// Order table: add order
+// Order table: create order
 /* e.g. http://localhost:3000/api/orders
 body: {
   key: 12345
