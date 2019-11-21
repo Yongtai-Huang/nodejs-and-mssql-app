@@ -8,8 +8,6 @@ const { sql, poolPromise } = require('../db');
 // Restaurant table: get all restaurants
 // e.g. http://localhost:3000/api/restaurants?key=12345
 router.get('/', async (req, res, next) => {
-  console.log(req.query);
-
   if (!req.query.key || req.query.key !== API_KEY ) {
     res.send(JSON.stringify({ success: false, message: "Missing or wrong API key" }));
   }
@@ -35,8 +33,6 @@ router.get('/', async (req, res, next) => {
 // Restaurant table: get restaurant by restaurantId
 // e.g. http://localhost:3000/api/restaurants/restaurantById?key=12345&restaurantId=2
 router.get('/restaurantById', async (req, res, next) => {
-  console.log(req.query);
-
   if (!req.query.key || req.query.key !== API_KEY ) {
     res.send(JSON.stringify({ success: false, message: "Missing or wrong API key" }));
   }
@@ -67,8 +63,6 @@ router.get('/restaurantById', async (req, res, next) => {
 // Restaurant table: get nearby restaurants (by lat, lng, and distance)
 // e.g. http://localhost:3000/api/restaurants/nearbyRestaurants?key=12345&lat=30.32000&lng=-81.485&distance=5
 router.get('/nearbyRestaurants', async (req, res, next) => {
-  console.log(req.query);
-
   if (!req.query.key || req.query.key !== API_KEY ) {
     res.send(JSON.stringify({ success: false, message: "Missing or wrong API key" }));
   }
@@ -110,8 +104,6 @@ router.get('/nearbyRestaurants', async (req, res, next) => {
 // Restaurant_Menu and Menu tables: get the menus of a restaurant by restaurantId
 // e.g. http://localhost:3000/api/restaurants/menu?key=12345&restaurantId=1
 router.get('/menu', async (req, res, next) => {
-  console.log(req.query);
-
   if (!req.query.key || req.query.key !== API_KEY ) {
     res.send(JSON.stringify({ success: false, message: "Missing or wrong API key" }));
   }

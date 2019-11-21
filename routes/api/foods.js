@@ -8,9 +8,6 @@ const { sql, poolPromise } = require('../db');
 // Menu_Food and Food table: get the foods on a manu by menuId
 // e.g. http://localhost:3000/api/foods/food?key=12345&menuId=1
 router.get('/food', async (req, res, next) => {
-  console.log(req.query);
-  console.log(API_KEY);
-
   if (!req.query.key || req.query.key !== API_KEY ) {
     res.send(JSON.stringify({ success: false, message: "Missing or wrong API key" }));
   }
@@ -42,8 +39,6 @@ router.get('/food', async (req, res, next) => {
 // Food table: get a food by foodId
 // e.g. http://localhost:3000/api/foods/foodById?key=12345&foodId=2
 router.get('/foodById', async (req, res, next) => {
-  console.log(req.query);
-
   if (!req.query.key || req.query.key !== API_KEY ) {
     res.send(JSON.stringify({ success: false, message: "Missing or wrong API key" }));
   }
@@ -74,8 +69,6 @@ router.get('/foodById', async (req, res, next) => {
 // Food table: search foods by name
 // e.g. http://localhost:3000/api/foods/searchFood?key=12345&foodName=pizza
 router.get('/searchFood', async (req, res, next) => {
-  console.log(req.query);
-
   if (!req.query.key || req.query.key !== API_KEY ) {
     res.send(JSON.stringify({ success: false, message: "missing or wrong API key" }));
   }
@@ -106,8 +99,6 @@ router.get('/searchFood', async (req, res, next) => {
 // Food_Size and Size table: get the sizes of a food by foodId
 // e.g. http://localhost:3000/api/foods/size?key=12345&foodId=39
 router.get('/size', async (req, res, next) => {
-  console.log(req.query);
-
   if (!req.query.key || req.query.key !== API_KEY ) {
     res.send(JSON.stringify({ success: false, message: "missing or wrong API key" }));
   }
@@ -139,8 +130,6 @@ router.get('/size', async (req, res, next) => {
 // Food_Addon and Addon tables: get the addons of a food by foodId
 // e.g. http://localhost:3000/api/foods/addon?key=12345&foodId=39
 router.get('/addon', async (req, res, next) => {
-  console.log(req.query);
-
   if (!req.query.key || req.query.key !== API_KEY ) {
     res.send(JSON.stringify({ success: false, message: "missing or wrong API key" }));
   }
@@ -172,8 +161,6 @@ router.get('/addon', async (req, res, next) => {
 // Favorite table: get favorite food
 // e.g. http://localhost:3000/api/foods/favorite?key=12345&fbid=2739799736047038
 router.get('/favorite', async (req, res, next) => {
-  console.log(req.query);
-
   if (!req.query.key || req.query.key !== API_KEY ) {
     res.send(JSON.stringify({ success: false, message: "Missing or wrong API key" }));
   }
@@ -206,8 +193,6 @@ router.get('/favorite', async (req, res, next) => {
 // Favorite table: get favorite foods of a restaurant
 // e.g. http://localhost:3000/api/foods/favoriteByRestaurant?key=12345&fbid=2739799736047038&restaurantId=1
 router.get('/favoriteByRestaurant', async (req, res, next) => {
-  console.log(req.query);
-
   if (!req.query.key || req.query.key !== API_KEY ) {
     res.send(JSON.stringify({ success: false, message: "Missing or wrong API key" }));
   }
@@ -257,8 +242,6 @@ router.get('/favoriteByRestaurant', async (req, res, next) => {
   }
 */
 router.post('/favorite', async (req, res, next) => {
-  console.log(req.body);
-  
   if (!req.body.key || req.body.key !== API_KEY) {
     res.send(JSON.stringify({ success: false, message: "Missing or wrong API key" }));
   }
@@ -301,8 +284,6 @@ router.post('/favorite', async (req, res, next) => {
 // favorite table: cancel favorite
 // http://localhost:3000/api/foods/favorite?key=12345&fbid=2739799736047038&foodId=39&restaurantId=1
 router.delete('/favorite', async (req, res, next) => {
-  console.log(req.query);
-  
   if (!req.query.key || req.query.key !== API_KEY) {
     res.send(JSON.stringify({ success: false, message: "Missing or wrong API key" }));
   }

@@ -90,8 +90,6 @@ body: {
 }
 */
 router.post('/', async (req, res, next) => {
-  console.log(req.body);
-  
   if (!req.body.key || req.body.key !== API_KEY) {
     req.send(JSON.stringify({ success: false, message: "Missing or wrong API key" }));
   }
@@ -132,8 +130,6 @@ router.post('/', async (req, res, next) => {
         + ' SELECT TOP 1 OrderId AS orderNumber FROM [Order] WHERE OrderFBID=@OrderFBID ORDER BY orderNumber DESC'
       );
 
-    console.log(queryResult);
-
     if (queryResult.recordset.length > 0) {
       res.send(JSON.stringify({ success: true, result: queryResult.recordset }));
     } else {
@@ -156,8 +152,6 @@ body: {
 }
 */
 router.put('/', async (req, res, next) => {
-  console.log(req.body);
-  
   if (!req.body.key || req.body.key !== API_KEY) {
     res.send(JSON.stringify({ success: false, message: "Missing or wrong API key" }));
   }
@@ -214,7 +208,6 @@ router.put('/', async (req, res, next) => {
     });
 
   } catch (err) {
-    console.log(err);
     res.status(500);
     res.send(JSON.stringify({ success: false, message: err.message }));
   }
